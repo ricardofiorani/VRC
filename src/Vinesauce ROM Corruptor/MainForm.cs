@@ -1714,5 +1714,25 @@ namespace Vinesauce_ROM_Corruptor
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button_StartByteUp_Click(sender, e);
+            button_Run_Click(sender, e);
+        }
+
+        private void button_add_increment_and_run_Click(object sender, EventArgs e)
+        {
+            int tempVal = int.Parse(textBox_AddXToByte.Text);
+            tempVal++;
+            textBox_AddXToByte.Text = tempVal.ToString();
+            button_Run_Click(sender, e);
+
+        }
+
+        private void button_reset_add_to_byte_Click(object sender, EventArgs e)
+        {
+            textBox_AddXToByte.Text = "1";
+        }
     }
 }

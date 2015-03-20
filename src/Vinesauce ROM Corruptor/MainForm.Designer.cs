@@ -79,6 +79,8 @@ namespace Vinesauce_ROM_Corruptor
             this.checkBox_TextReplacementEnable = new System.Windows.Forms.CheckBox();
             this.button_Run = new System.Windows.Forms.Button();
             this.groupBox_ByteCorruption = new System.Windows.Forms.GroupBox();
+            this.button_add_one_to_byte_and_run = new System.Windows.Forms.Button();
+            this.btn_add_start_byte_and_run = new System.Windows.Forms.Button();
             this.button_EnableNESCPUJamProtectionHelp = new System.Windows.Forms.Button();
             this.button_ReplaceByteXwithYHelp = new System.Windows.Forms.Button();
             this.textBox_ReplaceByteXwithYByteY = new System.Windows.Forms.TextBox();
@@ -145,10 +147,11 @@ namespace Vinesauce_ROM_Corruptor
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button_reset_add_to_byte = new System.Windows.Forms.Button();
             this.groupBox_FileSelection.SuspendLayout();
             this.groupBox_EmulatorSelection.SuspendLayout();
             this.groupBox_TextReplace.SuspendLayout();
@@ -161,9 +164,9 @@ namespace Vinesauce_ROM_Corruptor
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_RomDirectoryBrowse
@@ -492,6 +495,9 @@ namespace Vinesauce_ROM_Corruptor
             // 
             // groupBox_ByteCorruption
             // 
+            this.groupBox_ByteCorruption.Controls.Add(this.button_reset_add_to_byte);
+            this.groupBox_ByteCorruption.Controls.Add(this.button_add_one_to_byte_and_run);
+            this.groupBox_ByteCorruption.Controls.Add(this.btn_add_start_byte_and_run);
             this.groupBox_ByteCorruption.Controls.Add(this.button_EnableNESCPUJamProtectionHelp);
             this.groupBox_ByteCorruption.Controls.Add(this.button_ReplaceByteXwithYHelp);
             this.groupBox_ByteCorruption.Controls.Add(this.textBox_ReplaceByteXwithYByteY);
@@ -535,6 +541,26 @@ namespace Vinesauce_ROM_Corruptor
             this.groupBox_ByteCorruption.TabIndex = 11;
             this.groupBox_ByteCorruption.TabStop = false;
             this.groupBox_ByteCorruption.Text = "Byte Corruption";
+            // 
+            // button_add_one_to_byte_and_run
+            // 
+            this.button_add_one_to_byte_and_run.Location = new System.Drawing.Point(8, 303);
+            this.button_add_one_to_byte_and_run.Name = "button_add_one_to_byte_and_run";
+            this.button_add_one_to_byte_and_run.Size = new System.Drawing.Size(174, 23);
+            this.button_add_one_to_byte_and_run.TabIndex = 46;
+            this.button_add_one_to_byte_and_run.Text = "Add One to Byte and Run";
+            this.button_add_one_to_byte_and_run.UseVisualStyleBackColor = true;
+            this.button_add_one_to_byte_and_run.Click += new System.EventHandler(this.button_add_increment_and_run_Click);
+            // 
+            // btn_add_start_byte_and_run
+            // 
+            this.btn_add_start_byte_and_run.Location = new System.Drawing.Point(8, 274);
+            this.btn_add_start_byte_and_run.Name = "btn_add_start_byte_and_run";
+            this.btn_add_start_byte_and_run.Size = new System.Drawing.Size(174, 23);
+            this.btn_add_start_byte_and_run.TabIndex = 45;
+            this.btn_add_start_byte_and_run.Text = "Add Start Byte and Run";
+            this.btn_add_start_byte_and_run.UseVisualStyleBackColor = true;
+            this.btn_add_start_byte_and_run.Click += new System.EventHandler(this.button1_Click);
             // 
             // button_EnableNESCPUJamProtectionHelp
             // 
@@ -674,7 +700,7 @@ namespace Vinesauce_ROM_Corruptor
             // button_AddXToByteHelp
             // 
             this.button_AddXToByteHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_AddXToByteHelp.Location = new System.Drawing.Point(188, 142);
+            this.button_AddXToByteHelp.Location = new System.Drawing.Point(262, 142);
             this.button_AddXToByteHelp.Name = "button_AddXToByteHelp";
             this.button_AddXToByteHelp.Size = new System.Drawing.Size(26, 23);
             this.button_AddXToByteHelp.TabIndex = 34;
@@ -706,7 +732,7 @@ namespace Vinesauce_ROM_Corruptor
             // button_EveryNBytesHelp
             // 
             this.button_EveryNBytesHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_EveryNBytesHelp.Location = new System.Drawing.Point(188, 116);
+            this.button_EveryNBytesHelp.Location = new System.Drawing.Point(262, 115);
             this.button_EveryNBytesHelp.Name = "button_EveryNBytesHelp";
             this.button_EveryNBytesHelp.Size = new System.Drawing.Size(26, 23);
             this.button_EveryNBytesHelp.TabIndex = 30;
@@ -1280,18 +1306,6 @@ namespace Vinesauce_ROM_Corruptor
             this.tabPage2.Text = "Corruption";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.richTextBox1);
-            this.tabPage3.Controls.Add(this.pictureBox1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(372, 418);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "About";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.groupBox_TextReplace);
@@ -1313,6 +1327,18 @@ namespace Vinesauce_ROM_Corruptor
             this.tabPage5.Text = "Color";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.richTextBox1);
+            this.tabPage3.Controls.Add(this.pictureBox1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(372, 418);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "About";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(6, 128);
@@ -1323,12 +1349,22 @@ namespace Vinesauce_ROM_Corruptor
             this.richTextBox1.TabIndex = 40;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
+            // button_reset_add_to_byte
+            // 
+            this.button_reset_add_to_byte.Location = new System.Drawing.Point(189, 302);
+            this.button_reset_add_to_byte.Name = "button_reset_add_to_byte";
+            this.button_reset_add_to_byte.Size = new System.Drawing.Size(75, 23);
+            this.button_reset_add_to_byte.TabIndex = 47;
+            this.button_reset_add_to_byte.Text = "Reset";
+            this.button_reset_add_to_byte.UseVisualStyleBackColor = true;
+            this.button_reset_add_to_byte.Click += new System.EventHandler(this.button_reset_add_to_byte_Click);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.button_Run;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 562);
+            this.ClientSize = new System.Drawing.Size(384, 583);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox_Queue);
             this.Controls.Add(this.button_HotkeyHelp);
@@ -1363,9 +1399,9 @@ namespace Vinesauce_ROM_Corruptor
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1473,6 +1509,9 @@ namespace Vinesauce_ROM_Corruptor
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btn_add_start_byte_and_run;
+        private System.Windows.Forms.Button button_add_one_to_byte_and_run;
+        private System.Windows.Forms.Button button_reset_add_to_byte;
     }
 }
 
